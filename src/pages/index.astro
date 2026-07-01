@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Modelos from "../components/Modelos.astro";
+import Proceso from "../components/Proceso.astro";
+import Nosotros from "../components/Nosotros.astro";
+import Contacto from "../components/Contacto.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Modelos />
+    <Proceso />
+    <Nosotros />
+    <Contacto />
+  </main>
+  <Footer />
+  <script src="/scripts/main.js" is:inline></script>
+</Layout>

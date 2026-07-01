@@ -1,0 +1,117 @@
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+>
+  <div
+    class="mx-auto flex items-center justify-between px-gutter py-4 transition-all duration-500"
+    style="max-width: 1400px"
+  >
+    <a
+      href="#hero"
+      class="relative text-lead font-display text-[1.35rem] font-bold uppercase tracking-[-0.04em] no-underline leading-none"
+    >
+      <span class="text-ember">ERICK</span>
+      <span class="text-[0.5rem] font-mono font-normal tracking-[0.2em] text-smoke ml-2 uppercase hidden sm:inline">
+        Fábrica de Gorras
+      </span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+      <li>
+        <a
+          href="#modelos"
+          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+        >Modelos</a>
+      </li>
+      <li>
+        <a
+          href="#proceso"
+          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+        >Proceso</a>
+      </li>
+      <li>
+        <a
+          href="#nosotros"
+          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+        >Nosotros</a>
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+        >Contacto</a>
+      </li>
+    </ul>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="#contacto"
+        class="hidden sm:inline-flex items-center gap-2 bg-ember text-ink text-[0.7rem] font-mono font-semibold uppercase tracking-[0.15em] px-5 py-2.5 no-underline hover:bg-emberlight transition-all duration-300"
+      >
+        Cotizar
+        <span class="material-symbols-outlined text-sm">chevron_right</span>
+      </a>
+      <button
+        id="menu-toggle"
+        class="md:hidden bg-transparent border-0 text-lead p-1 cursor-pointer"
+        aria-label="Menú"
+      >
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scroll progress indicator -->
+  <div
+    id="scroll-progress"
+    class="absolute bottom-0 left-0 h-[2px] bg-ember transition-all duration-150"
+    style="width: 0%"
+  ></div>
+</nav>
+
+<!-- Mobile menu -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-[60] bg-ink/98 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-500"
+>
+  <button
+    id="menu-close"
+    class="absolute top-6 right-6 bg-transparent border-0 text-lead cursor-pointer"
+    aria-label="Cerrar"
+  >
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+
+  <ul class="flex flex-col items-center gap-8 list-none m-0 p-0">
+    <li>
+      <a
+        href="#hero"
+        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+      >Inicio</a>
+    </li>
+    <li>
+      <a
+        href="#modelos"
+        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+      >Modelos</a>
+    </li>
+    <li>
+      <a
+        href="#proceso"
+        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+      >Proceso</a>
+    </li>
+    <li>
+      <a
+        href="#nosotros"
+        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+      >Nosotros</a>
+    </li>
+    <li>
+      <a
+        href="#contacto"
+        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+      >Contacto</a>
+    </li>
+  </ul>
+</div>

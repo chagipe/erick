@@ -1,0 +1,218 @@
+<section
+  id="contacto"
+  class="relative py-section bg-iron/30 overflow-hidden"
+>
+  <div class="absolute inset-0 grid-pattern opacity-20"></div>
+
+  <div
+    class="relative z-10 mx-auto px-gutter"
+    style="max-width: 1200px"
+  >
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16 reveal">
+      <span
+        class="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-ember block mb-3"
+      >
+        Cotización
+      </span>
+      <h2
+        class="font-display text-display-md text-lead uppercase leading-[1.05] m-0"
+      >
+          Cuéntanos tu proyecto y recibe un presupuesto en 24h
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+      <!-- Info -->
+      <div class="lg:col-span-2 reveal-left">
+        <div class="space-y-5">
+          <div
+            class="flex items-start gap-4 p-5 bg-ink/60 border border-white/5"
+          >
+            <span
+              class="material-symbols-outlined text-ember text-xl mt-0.5"
+            >call</span>
+            <div>
+              <p
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 m-0 mb-1"
+              >
+                Línea directa
+              </p>
+              <p
+                class="text-[0.95rem] text-lead font-medium m-0"
+              >
+                +51 123 456 789
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-4 p-5 bg-ink/60 border border-white/5"
+          >
+            <span
+              class="material-symbols-outlined text-ember text-xl mt-0.5"
+            >mail</span>
+            <div>
+              <p
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 m-0 mb-1"
+              >
+                Correo de producción
+              </p>
+              <p
+                class="text-[0.95rem] text-lead font-medium m-0"
+              >
+                ventas@erickgorras.com
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-start gap-4 p-5 bg-ink/60 border border-white/5"
+          >
+            <span
+              class="material-symbols-outlined text-ember text-xl mt-0.5"
+            >schedule</span>
+            <div>
+              <p
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 m-0 mb-1"
+              >
+                Tiempo de respuesta
+              </p>
+              <p
+                class="text-[0.95rem] text-lead font-medium m-0"
+              >
+                &lt; 24 horas hábiles
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 p-5 border border-ember/15 bg-ember/5">
+          <p
+            class="text-[0.7rem] font-mono uppercase tracking-[0.1em] text-ember m-0 mb-2"
+          >
+            Lote mínimo
+          </p>
+          <p class="text-body-md text-lead/70 m-0">
+            Producimos desde <strong class="text-lead">30 unidades</strong> por
+            diseño. Consulta por volumen para precios especiales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="lg:col-span-3 reveal-right">
+        <form
+          id="contact-form"
+          class="bg-ink/80 border border-white/5 p-6 lg:p-8 space-y-5"
+          novalidate
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="group">
+              <label
+                for="nombre"
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+              >Nombre *</label>
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                required
+                class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15"
+                placeholder="Juan Pérez"
+              />
+            </div>
+            <div class="group">
+              <label
+                for="correo"
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+              >Correo *</label>
+              <input
+                id="correo"
+                name="correo"
+                type="email"
+                required
+                class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15"
+                placeholder="juan@marca.com"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="group">
+              <label
+                for="telefono"
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+              >Teléfono *</label>
+              <input
+                id="telefono"
+                name="telefono"
+                type="tel"
+                required
+                class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15"
+                placeholder="+51 999 888 777"
+              />
+            </div>
+            <div class="group">
+              <label
+                for="tipo"
+                class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+              >Tipo de gorra</label>
+              <select
+                id="tipo"
+                name="tipo"
+                class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15 appearance-none"
+              >
+                <option value="trucker" class="bg-ink">Trucker Hat</option>
+                <option value="snapback" class="bg-ink">Snapback</option>
+                <option value="dadhat" class="bg-ink">Dad Hat</option>
+                <option value="beanie" class="bg-ink">Beanie</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="cantidad"
+              class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+            >Cantidad estimada *</label>
+            <input
+              id="cantidad"
+              name="cantidad"
+              type="number"
+              min="30"
+              required
+              class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15"
+              placeholder="50"
+            />
+          </div>
+
+          <div>
+            <label
+              for="mensaje"
+              class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 block mb-1.5"
+            >Cuéntanos sobre tu diseño</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              class="w-full bg-transparent border border-white/8 text-lead text-[0.9rem] px-4 py-2.5 outline-none transition-all duration-300 focus:border-ember/50 hover:border-white/15 resize-none"
+              placeholder="Colores, logotipos, cantidades por modelo, fechas estimadas..."
+            ></textarea>
+          </div>
+
+          <div
+            id="form-status"
+            class="hidden text-body-md text-center p-3 rounded"
+          ></div>
+
+          <button
+            type="submit"
+            class="w-full bg-ember text-ink font-semibold text-[0.8rem] uppercase tracking-[0.1em] py-3.5 no-underline hover:bg-emberlight transition-all duration-300 cursor-pointer border-0"
+          >
+            Enviar solicitud
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

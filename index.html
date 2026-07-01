@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erick | Fábrica de Gorras — Calidad Industrial</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&family=Inter:wght@400;500;700&family=Geist:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed-variant": "#554500",
+            secondary: "#e7c435",
+            "on-primary-container": "#572000",
+            "on-primary": "#561f00",
+            "on-surface-variant": "#e2bfb0",
+            "surface-dim": "#131313",
+            "tertiary-fixed": "#d0e4ff",
+            "on-tertiary": "#003257",
+            surface: "#131313",
+            tertiary: "#9ccaff",
+            "on-secondary-fixed": "#221b00",
+            background: "#131313",
+            "on-tertiary-container": "#003357",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#201f1f",
+            "on-secondary": "#3b2f00",
+            "surface-container-highest": "#353534",
+            "inverse-primary": "#a04100",
+            "on-primary-fixed": "#351000",
+            "tertiary-container": "#059eff",
+            "inverse-on-surface": "#313030",
+            "surface-tint": "#ffb693",
+            "surface-container-lowest": "#0e0e0e",
+            outline: "#a98a7d",
+            "on-tertiary-fixed-variant": "#00497b",
+            error: "#ffb4ab",
+            "on-error": "#690005",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#7a3000",
+            "primary-fixed-dim": "#ffb693",
+            "secondary-container": "#be9e00",
+            "secondary-fixed-dim": "#e7c435",
+            "surface-container-high": "#2a2a2a",
+            "surface-bright": "#393939",
+            "on-secondary-container": "#433600",
+            "on-surface": "#e5e2e1",
+            "outline-variant": "#5a4136",
+            "primary-fixed": "#ffdbcc",
+            "on-tertiary-fixed": "#001d35",
+            "on-background": "#e5e2e1",
+            "surface-variant": "#353534",
+            "inverse-surface": "#e5e2e1",
+            "surface-container-low": "#1c1b1b",
+            "primary-container": "#ff6b00",
+            primary: "#ffb693",
+            "secondary-fixed": "#ffe175",
+            "tertiary-fixed-dim": "#9ccaff",
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem",
+          },
+          spacing: {
+            lg: "48px",
+            "margin-desktop": "64px",
+            sm: "16px",
+            "margin-mobile": "16px",
+            base: "4px",
+            xs: "8px",
+            xl: "80px",
+            md: "24px",
+            gutter: "24px",
+          },
+          fontFamily: {
+            "body-md": ["Inter"],
+            "label-technical": ["Geist"],
+            "body-lg": ["Inter"],
+            display: ["Archivo Narrow"],
+            "headline-md": ["Archivo Narrow"],
+            "headline-lg-mobile": ["Archivo Narrow"],
+            "headline-lg": ["Archivo Narrow"],
+          },
+          fontSize: {
+            "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+            "label-technical": ["12px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "500" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            display: ["72px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+            "headline-lg": ["48px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+    .glow-orange {
+      box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
+    }
+    .glow-orange-strong {
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.6);
+    }
+    .bento-border {
+      border: 1px solid #333;
+    }
+    .technical-grid {
+      background-image: radial-gradient(#333 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #131313;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #ff6b00;
+    }
+
+    /* Mobile nav animation */
+    .nav-mobile-open {
+      transform: translateX(0) !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    /* Fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md custom-scrollbar overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+  <!-- ========== TOP NAVBAR ========== -->
+  <nav class="fixed top-0 w-full z-50 bg-background/95 border-b border-outline-variant flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-full mx-auto backdrop-blur-md">
+    <a href="#inicio" class="font-display text-headline-md text-primary tracking-tighter uppercase no-underline">
+      Erick | Fábrica de Gorras
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-lg list-none m-0 p-0">
+      <li><a href="#inicio" class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md no-underline">Inicio</a></li>
+      <li><a href="#modelos" class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md no-underline">Modelos</a></li>
+      <li><a href="#proceso" class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md no-underline">Proceso</a></li>
+      <li><a href="#nosotros" class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md no-underline">Nosotros</a></li>
+      <li><a href="#contacto" class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md no-underline">Contacto</a></li>
+    </ul>
+
+    <div class="flex items-center gap-md">
+      <a href="#contacto" class="bg-primary-container text-on-primary-container font-label-technical text-label-technical px-md py-xs uppercase font-bold glow-orange hover:scale-105 active:scale-95 transition-all no-underline hidden sm:inline-block">
+        Cotizar Ahora
+      </a>
+      <!-- Hamburger -->
+      <button id="menu-toggle" class="md:hidden bg-transparent border-0 text-on-surface p-xs cursor-pointer" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-[28px]">menu</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed top-0 right-0 w-72 h-full bg-surface-container-high border-l border-outline-variant z-[60] transform translate-x-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+    <div class="flex justify-end p-md">
+      <button id="menu-close" class="bg-transparent border-0 text-on-surface cursor-pointer" aria-label="Cerrar menú">
+        <span class="material-symbols-outlined text-[28px]">close</span>
+      </button>
+    </div>
+    <ul class="flex flex-col gap-md list-none m-0 p-md">
+      <li><a href="#inicio" class="text-on-surface font-headline-md uppercase no-underline block py-xs">Inicio</a></li>
+      <li><a href="#modelos" class="text-on-surface-variant hover:text-on-surface font-headline-md uppercase no-underline block py-xs transition-colors">Modelos</a></li>
+      <li><a href="#proceso" class="text-on-surface-variant hover:text-on-surface font-headline-md uppercase no-underline block py-xs transition-colors">Proceso</a></li>
+      <li><a href="#nosotros" class="text-on-surface-variant hover:text-on-surface font-headline-md uppercase no-underline block py-xs transition-colors">Nosotros</a></li>
+      <li><a href="#contacto" class="text-on-surface-variant hover:text-on-surface font-headline-md uppercase no-underline block py-xs transition-colors">Contacto</a></li>
+      <li class="mt-md"><a href="#contacto" class="bg-primary-container text-on-primary-container font-label-technical text-label-technical px-md py-xs uppercase font-bold glow-orange text-center block no-underline">Cotizar Ahora</a></li>
+    </ul>
+  </div>
+
+  <!-- ========== MAIN ========== -->
+  <main class="pt-20">
+    <!-- ===== HERO ===== -->
+    <section class="relative min-h-[921px] flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden" id="inicio">
+      <div class="absolute inset-0 z-0 opacity-20 pointer-events-none technical-grid"></div>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-lg items-center">
+        <!-- Text -->
+        <div class="lg:col-span-7">
+          <span class="font-label-technical text-label-technical text-primary bg-primary-container/10 px-xs py-1 border border-primary-container/20 mb-md inline-block">
+            EST. 2024 | INDUSTRIAL GRADE
+          </span>
+          <h1 class="font-display text-headline-lg-mobile md:text-display text-on-surface uppercase mb-md leading-none">
+            Fabricamos la <span class="text-primary-container">Identidad</span> de tu Marca
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg">
+            Producción exclusiva y personalización premium de gorras para marcas de ropa, empresas y eventos masivos.
+            Calidad textil indestructible desde la visera hasta el broche.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-md">
+            <a href="#contacto" class="bg-primary-container text-on-primary-container font-headline-md px-lg py-sm glow-orange-strong hover:bg-primary transition-all flex items-center justify-center gap-xs no-underline">
+              Iniciar Cotización
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="#modelos" class="border-2 border-on-surface-variant text-on-surface font-headline-md px-lg py-sm hover:border-primary transition-all no-underline text-center">
+              Ver Modelos
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero image grid -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-base mt-lg lg:mt-0">
+          <div class="aspect-square bento-border overflow-hidden relative group hero-parallax">
+            <img class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" alt="Macro de tela premium negra para gorras con textura de sarga y costura industrial pesada" src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&q=80" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+          </div>
+          <div class="aspect-square bento-border overflow-hidden relative group hero-parallax mt-md">
+            <img class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" alt="Detalle de bordado 3D puff en gorra con hilo metálico plateado" src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400&q=80" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+          </div>
+          <div class="aspect-square bento-border overflow-hidden relative group hero-parallax">
+            <img class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" alt="Colección de broches y cierres metálicos premium para gorras" src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+          </div>
+          <div class="aspect-square bento-border overflow-hidden relative group hero-parallax mt-md">
+            <img class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700" alt="Visera de gamuza premium con costuras paralelas perfectas en gorra de lujo" src="https://images.unsplash.com/photo-1511556824380-db13567f91e5?w=400&q=80" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODELOS ===== -->
+    <section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="modelos">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-md">
+        <div>
+          <span class="font-label-technical text-label-technical text-primary uppercase">Catálogo Premium</span>
+          <h2 class="font-display text-headline-lg text-on-surface uppercase mt-xs">Modelos Disponibles</h2>
+        </div>
+        <p class="font-label-technical text-label-technical text-on-surface-variant max-w-xs text-right hidden md:block">
+          PRODUCCIÓN MÍNIMA DE 30 UNIDADES POR DISEÑO. CALIDAD DE EXPORTACIÓN.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+        <!-- Trucker Hat -->
+        <div class="bg-surface-container border border-outline-variant hover:border-primary-container transition-all group overflow-hidden flex flex-col h-full reveal">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Trucker Hat gris carbón con malla blanca sobre pedestal industrial" src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&q=80" loading="lazy" />
+            <div class="absolute top-xs right-xs bg-primary-container text-on-primary-container font-label-technical text-label-technical px-xs py-1">POPULAR</div>
+          </div>
+          <div class="p-md flex flex-col flex-grow">
+            <h3 class="font-display text-headline-md uppercase text-on-surface">Trucker Hat</h3>
+            <p class="text-on-surface-variant font-body-md mt-xs flex-grow">Malla de alta densidad y frente rígido para máxima durabilidad urbana.</p>
+            <a href="#contacto" class="mt-md font-label-technical text-label-technical text-primary hover:gap-sm flex items-center gap-xs transition-all no-underline">
+              VER DETALLES <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Snapback -->
+        <div class="bg-surface-container border border-outline-variant hover:border-primary-container transition-all group overflow-hidden flex flex-col h-full reveal">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Snapback premium negro mate con visera plana sobre superficie reflectante" src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=400&q=80" loading="lazy" />
+          </div>
+          <div class="p-md flex flex-col flex-grow">
+            <h3 class="font-display text-headline-md uppercase text-on-surface">Snapback</h3>
+            <p class="text-on-surface-variant font-body-md mt-xs flex-grow">Cierre ajustable de polímero reforzado y visera plana estructurada.</p>
+            <a href="#contacto" class="mt-md font-label-technical text-label-technical text-primary hover:gap-sm flex items-center gap-xs transition-all no-underline">
+              VER DETALLES <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dad Hat -->
+        <div class="bg-surface-container border border-outline-variant hover:border-primary-container transition-all group overflow-hidden flex flex-col h-full reveal">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Dad Hat vintage verde oliva lavado con visera curva y ajuste relajado" src="https://images.unsplash.com/photo-1577805947697-89e18249d767?w=400&q=80" loading="lazy" />
+          </div>
+          <div class="p-md flex flex-col flex-grow">
+            <h3 class="font-display text-headline-md uppercase text-on-surface">Dad Hat</h3>
+            <p class="text-on-surface-variant font-body-md mt-xs flex-grow">Algodón pre-lavado y ajuste de hebilla metálica. Estilo clásico relajado.</p>
+            <a href="#contacto" class="mt-md font-label-technical text-label-technical text-primary hover:gap-sm flex items-center gap-xs transition-all no-underline">
+              VER DETALLES <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Beanies -->
+        <div class="bg-surface-container border border-outline-variant hover:border-primary-container transition-all group overflow-hidden flex flex-col h-full reveal">
+          <div class="aspect-[4/5] overflow-hidden relative">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Beanie de lana borgoña con tejido grueso acanalado en entorno industrial" src="https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=400&q=80" loading="lazy" />
+          </div>
+          <div class="p-md flex flex-col flex-grow">
+            <h3 class="font-display text-headline-md uppercase text-on-surface">Beanies</h3>
+            <p class="text-on-surface-variant font-body-md mt-xs flex-grow">Tejido térmico industrial. Doble capa para máxima retención de calor.</p>
+            <a href="#contacto" class="mt-md font-label-technical text-label-technical text-primary hover:gap-sm flex items-center gap-xs transition-all no-underline">
+              VER DETALLES <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESO ===== -->
+    <section class="py-xl px-margin-mobile md:px-margin-desktop" id="proceso">
+      <div class="max-w-4xl mx-auto text-center mb-xl">
+        <span class="font-label-technical text-label-technical text-primary uppercase">Metodología de Forja</span>
+        <h2 class="font-display text-headline-lg text-on-surface uppercase mt-xs">Ingeniería Textil en 3 Pasos</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-lg relative">
+        <div class="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant -z-10 translate-y-[-50%]"></div>
+
+        <!-- Step 1 -->
+        <div class="bg-background flex flex-col items-center text-center group reveal">
+          <div class="w-20 h-20 bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center mb-md group-hover:border-primary-container group-hover:glow-orange transition-all duration-300">
+            <span class="material-symbols-outlined text-[32px] text-on-surface">rubric</span>
+          </div>
+          <h3 class="font-display text-headline-md uppercase text-on-surface mb-xs">01. Diseño y Telas</h3>
+          <p class="text-on-surface-variant font-body-md">Selección de materiales base y carga de logotipos para vectorización profesional.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-background flex flex-col items-center text-center group reveal">
+          <div class="w-20 h-20 bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center mb-md group-hover:border-primary-container group-hover:glow-orange transition-all duration-300">
+            <span class="material-symbols-outlined text-[32px] text-on-surface">3d_rotation</span>
+          </div>
+          <h3 class="font-display text-headline-md uppercase text-on-surface mb-xs">02. Muestreo 3D</h3>
+          <p class="text-on-surface-variant font-body-md">Vista previa digital ultra-realista y aprobación de muestra física antes de la producción.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-background flex flex-col items-center text-center group reveal">
+          <div class="w-20 h-20 bg-surface-container-highest border-2 border-outline-variant flex items-center justify-center mb-md group-hover:border-primary-container group-hover:glow-orange transition-all duration-300">
+            <span class="material-symbols-outlined text-[32px] text-on-surface">precision_manufacturing</span>
+          </div>
+          <h3 class="font-display text-headline-md uppercase text-on-surface mb-xs">03. Producción y Envío</h3>
+          <p class="text-on-surface-variant font-body-md">Manufactura a gran escala con control de calidad por unidad y logística global.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-2" id="nosotros">
+      <div class="flex flex-col justify-center px-margin-mobile md:px-margin-desktop py-xl bg-surface-container-low border-y lg:border-y-0 lg:border-r border-outline-variant">
+        <span class="font-label-technical text-label-technical text-primary uppercase">Especialización Total</span>
+        <h2 class="font-display text-headline-lg text-on-surface uppercase mt-xs mb-lg leading-tight">No Hacemos Ropa, Forjamos Gorras</h2>
+        <div class="space-y-md">
+          <div class="flex gap-md">
+            <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <div>
+              <h4 class="font-display text-headline-md uppercase text-on-surface">Costura Blindada</h4>
+              <p class="text-on-surface-variant">Puntadas reforzadas en puntos de tensión para soportar uso rudo y condiciones extremas.</p>
+            </div>
+          </div>
+          <div class="flex gap-md">
+            <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <div>
+              <h4 class="font-display text-headline-md uppercase text-on-surface">Materiales de Grado A</h4>
+              <p class="text-on-surface-variant">Solo utilizamos algodón, poliéster y mallas de gramaje superior seleccionadas personalmente.</p>
+            </div>
+          </div>
+          <div class="flex gap-md">
+            <span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            <div>
+              <h4 class="font-display text-headline-md uppercase text-on-surface">Precisión Láser</h4>
+              <p class="text-on-surface-variant">Corte y bordado asistido por computadora para una simetría perfecta en cada unidad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-lg pt-lg border-t border-outline-variant flex gap-lg">
+          <div>
+            <div class="font-display text-headline-lg text-primary leading-none">10K+</div>
+            <div class="font-label-technical text-label-technical text-on-surface-variant uppercase mt-xs">Gorras Mensuales</div>
+          </div>
+          <div>
+            <div class="font-display text-headline-lg text-primary leading-none">500+</div>
+            <div class="font-label-technical text-label-technical text-on-surface-variant uppercase mt-xs">Marcas Confían</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative min-h-[500px]">
+        <img class="absolute inset-0 w-full h-full object-cover" alt="Taller de manufactura industrial con máquinas de bordado de última generación" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" loading="lazy" />
+        <div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="py-xl px-margin-mobile md:px-margin-desktop bg-background technical-grid" id="contacto">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-xl">
+        <div class="lg:col-span-5">
+          <h2 class="font-display text-headline-lg text-on-surface uppercase mb-md">Inicia tu Proyecto</h2>
+          <p class="text-on-surface-variant font-body-lg mb-lg">Estamos listos para escalar tu marca. Completa el formulario y un asesor técnico te contactará en menos de 24 horas.</p>
+          <div class="space-y-sm">
+            <div class="flex items-center gap-md p-md bg-surface-container border border-outline-variant">
+              <span class="material-symbols-outlined text-primary">phone_in_talk</span>
+              <div>
+                <p class="font-label-technical text-label-technical text-on-surface-variant uppercase">Línea Directa</p>
+                <p class="font-body-lg text-on-surface">+52 (55) 1234 5678</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-md p-md bg-surface-container border border-outline-variant">
+              <span class="material-symbols-outlined text-primary">mail</span>
+              <div>
+                <p class="font-label-technical text-label-technical text-on-surface-variant uppercase">Correo de Producción</p>
+                <p class="font-body-lg text-on-surface">ventas@erickgorras.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="bg-surface-container-high p-lg border-2 border-primary-container glow-orange space-y-md" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              <div>
+                <label for="nombre" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Nombre Completo</label>
+                <input id="nombre" name="nombre" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all" placeholder="Juan Pérez" type="text" required />
+              </div>
+              <div>
+                <label for="correo" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Correo Electrónico</label>
+                <input id="correo" name="correo" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all" placeholder="juan@marca.com" type="email" required />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              <div>
+                <label for="telefono" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Teléfono</label>
+                <input id="telefono" name="telefono" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all" placeholder="+52 ..." type="tel" required />
+              </div>
+              <div>
+                <label for="tipo" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Tipo de Gorra</label>
+                <select id="tipo" name="tipo" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all appearance-none">
+                  <option value="trucker">Trucker Hat</option>
+                  <option value="snapback">Snapback</option>
+                  <option value="dadhat">Dad Hat</option>
+                  <option value="beanie">Beanies</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="cantidad" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Cantidad Estimada (Mín. 30)</label>
+              <input id="cantidad" name="cantidad" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all" min="30" placeholder="50" type="number" required />
+            </div>
+            <div>
+              <label for="mensaje" class="font-label-technical text-label-technical text-on-surface-variant uppercase block mb-xs">Mensaje / Requerimientos Especiales</label>
+              <textarea id="mensaje" name="mensaje" class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface font-body-md px-md py-sm outline-none transition-all resize-none" placeholder="Cuéntanos sobre tu diseño y logotipos..." rows="4" required></textarea>
+            </div>
+
+            <!-- Status message -->
+            <div id="form-status" class="hidden font-body-md text-center p-sm rounded"></div>
+
+            <button class="w-full bg-primary-container text-on-primary-container font-display text-headline-md py-sm uppercase font-bold hover:bg-primary glow-orange transition-all active:scale-95 cursor-pointer" type="submit">
+              Enviar Solicitud de Producción
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-surface-container-lowest border-t-2 border-outline-variant w-full py-xl px-margin-mobile md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-md">
+      <div class="font-display text-headline-md text-on-surface uppercase tracking-tighter">
+        Erick | <span class="text-primary">Fábrica de Gorras</span>
+      </div>
+      <div class="flex gap-lg">
+        <a href="#" class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors no-underline">Privacidad</a>
+        <a href="#" class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors no-underline">Términos</a>
+        <a href="#" class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors no-underline">Ubicación</a>
+      </div>
+      <div class="font-label-technical text-label-technical text-on-surface-variant">
+        &copy; 2024 Erick | Fábrica de Gorras. Industrial Grade Quality.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAB -->
+  <a href="#contacto" class="fixed bottom-margin-mobile right-margin-mobile w-16 h-16 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center glow-orange-strong hover:scale-110 active:scale-95 transition-all z-40 group no-underline">
+    <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+    <span class="absolute right-full mr-md bg-surface-container border border-outline-variant px-sm py-xs text-label-technical text-on-surface uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Hablemos ahora</span>
+  </a>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    (function () {
+      "use strict";
+
+      // ——— Smooth scroll ———
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          var target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // ——— Mobile menu ———
+      var menuToggle = document.getElementById("menu-toggle");
+      var menuClose = document.getElementById("menu-close");
+      var mobileMenu = document.getElementById("mobile-menu");
+
+      function openMenu() {
+        mobileMenu.classList.add("nav-mobile-open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMenu() {
+        mobileMenu.classList.remove("nav-mobile-open");
+        document.body.style.overflow = "";
+      }
+
+      if (menuToggle) menuToggle.addEventListener("click", openMenu);
+      if (menuClose) menuClose.addEventListener("click", closeMenu);
+
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Close mobile menu on Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && mobileMenu.classList.contains("nav-mobile-open")) {
+          closeMenu();
+        }
+      });
+
+      // ——— Hero parallax ———
+      var heroImages = document.querySelectorAll(".hero-parallax");
+      if (heroImages.length) {
+        window.addEventListener("scroll", function () {
+          var scrolled = window.pageYOffset;
+          heroImages.forEach(function (img) {
+            img.style.transform = "translateY(" + scrolled * 0.05 + "px)";
+          });
+        });
+      }
+
+      // ——— Reveal on scroll (Intersection Observer) ———
+      var revealEls = document.querySelectorAll(".reveal");
+      if (revealEls.length) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        revealEls.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      // ——— Form validation + submission ———
+      var form = document.getElementById("contact-form");
+      var statusEl = document.getElementById("form-status");
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Native validation
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          // Collect data
+          var data = {
+            nombre: document.getElementById("nombre").value.trim(),
+            correo: document.getElementById("correo").value.trim(),
+            telefono: document.getElementById("telefono").value.trim(),
+            tipo: document.getElementById("tipo").value,
+            cantidad: document.getElementById("cantidad").value,
+            mensaje: document.getElementById("mensaje").value.trim(),
+          };
+
+          // Simulate send
+          statusEl.className =
+            "font-body-md text-center p-sm rounded bg-primary-container/20 text-primary block";
+          statusEl.textContent = "Enviando solicitud...";
+          statusEl.classList.remove("hidden");
+
+          setTimeout(function () {
+            statusEl.className =
+              "font-body-md text-center p-sm rounded bg-[#1a3a2a] text-[#4cdf8b] block";
+            statusEl.textContent =
+              "¡Solicitud recibida! Te contactaremos en menos de 24 horas.";
+            form.reset();
+
+            setTimeout(function () {
+              statusEl.classList.add("hidden");
+            }, 6000);
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
