@@ -1,114 +1,100 @@
-<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0 bg-ink">
-    <div class="absolute inset-0 grid-pattern opacity-40"></div>
-    <div class="absolute inset-0 noise-overlay"></div>
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-ember/3 blur-[120px] hero-glow"
-    ></div>
-  </div>
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden" style="background: var(--ink)">
+  <!-- Background accent -->
+  <div class="absolute top-0 right-0 w-[38%] h-full" style="background: var(--iron)"></div>
+  <div class="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full" style="background: var(--ember); opacity: 0.03; filter: blur(100px);"></div>
 
   <div
-    class="relative z-10 w-full mx-auto px-gutter pt-24 pb-16"
+    class="relative z-10 w-full mx-auto px-gutter pt-24 pb-8"
     style="max-width: 1400px"
   >
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       <!-- Copy -->
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-5 max-w-xl">
         <span
-          class="inline-flex items-center gap-2 text-[0.65rem] font-mono uppercase tracking-[0.2em] text-ember bg-ember/8 border border-ember/20 px-3 py-1.5 mb-6 anim-slide-down"
-          style="animation-delay: 0.05s"
+          class="inline-flex items-center gap-2 text-[0.65rem] font-mono uppercase tracking-[0.2em] px-3 py-1.5 mb-6 anim-slide-down glass-card-static"
+          style="animation-delay: 0.05s; color: var(--ember); border-color: color-mix(in srgb, var(--ember) 15%, transparent)"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-ember animate-pulse"></span>
+          <span class="w-1.5 h-1.5" style="background: var(--ember); border-radius: 50%;"></span>
           Fundada 2026 · Producción Industrial
         </span>
 
         <h1
-          class="font-display text-display-xl text-lead uppercase leading-[0.92] mt-0 mb-0"
+          class="font-display uppercase leading-[0.88] mt-0 mb-0"
+          style="color: var(--lead); font-size: clamp(2.5rem, 7vw, 6rem)"
         >
           <span class="block anim-slide-up" style="animation-delay: 0.12s">Fabricamos</span>
-          <span class="block text-ember glow-ember-text anim-slide-up" style="animation-delay: 0.22s">Identidad</span>
+          <span class="block anim-slide-up" style="animation-delay: 0.22s; color: var(--ember)">Identidad</span>
           <span class="block anim-slide-up" style="animation-delay: 0.32s">desde 0.</span>
         </h1>
 
         <p
-          class="mt-6 text-body-lg text-soot/70 max-w-[520px] leading-relaxed anim-fade-in"
-          style="animation-delay: 0.45s"
+          class="mt-5 text-body-lg leading-relaxed anim-fade-in"
+          style="animation-delay: 0.45s; color: var(--soot)"
         >
           Producimos gorras con obsesión por el detalle. Materiales de grado
-          industrial, costura reforzada en cada punto de tensión y control de
-          calidad unitario. De tu visión a tu lote, sin intermediarios.
+          industrial, costura reforzada y control de calidad unitario.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 mt-8 anim-slide-up" style="animation-delay: 0.6s">
+        <div class="flex flex-col sm:flex-row gap-4 mt-6 anim-slide-up" style="animation-delay: 0.6s">
           <a
             href="#contacto"
-            class="group inline-flex items-center gap-3 bg-ember text-ink font-semibold text-[0.85rem] uppercase tracking-[0.08em] px-7 py-3.5 no-underline hover:bg-emberlight transition-all duration-300"
+            class="group inline-flex items-center gap-3 font-semibold text-[0.85rem] uppercase tracking-[0.08em] px-6 py-3 no-underline transition-all duration-300 rounded-full"
+            style="background: var(--ember); color: #FFFFFF"
+            onmouseover="this.style.background='var(--emberdark)'"
+            onmouseout="this.style.background='var(--ember)'"
           >
             Iniciar proyecto
-            <span
-              class="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1"
-            >
-              arrow_forward
-            </span>
+            <span class="material-symbols-outlined text-lg transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
           </a>
           <a
             href="#modelos"
-            class="inline-flex items-center gap-2 border border-smoke/30 text-lead/80 text-[0.85rem] uppercase tracking-[0.08em] px-7 py-3.5 no-underline hover:border-ember hover:text-ember transition-all duration-300"
+            class="inline-flex items-center gap-2 text-[0.85rem] uppercase tracking-[0.08em] px-6 py-3 no-underline transition-all duration-300 rounded-full glass-card-static"
+            style="color: var(--soot)"
+            onmouseover="this.style.color='var(--ember)'"
+            onmouseout="this.style.color='var(--soot)'"
           >
-            <span class="w-5 h-[1px] bg-current"></span>
             Explorar modelos
           </a>
         </div>
 
-        <!-- Trusted by -->
-        <div class="mt-12 pt-8 border-t border-white/5 anim-fade-in" style="animation-delay: 0.75s">
-          <p
-            class="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-smoke/50 mb-4"
-          >
+        <div class="mt-10 pt-6 anim-fade-in" style="animation-delay: 0.75s; border-top: 1px solid var(--slag)">
+          <p class="text-[0.6rem] font-mono uppercase tracking-[0.2em] mb-3" style="color: var(--smoke)">
             Confían en nosotros
           </p>
-          <div class="flex flex-wrap gap-8 items-center">
-            <span class="text-smoke/30 font-display text-[1.2rem] font-bold uppercase tracking-tight">Marca+</span>
-            <span class="text-smoke/30 font-display text-[1.2rem] font-bold uppercase tracking-tight">RUSH</span>
-            <span class="text-smoke/30 font-display text-[1.2rem] font-bold uppercase tracking-tight">STREET</span>
-            <span class="text-smoke/30 font-display text-[1.2rem] font-bold uppercase tracking-tight">RAW</span>
+          <div class="flex flex-wrap gap-6 items-center">
+            <span class="font-display text-[1.1rem] font-bold uppercase tracking-tight" style="color: var(--smoke)">Marca+</span>
+            <span class="font-display text-[1.1rem] font-bold uppercase tracking-tight" style="color: var(--smoke)">RUSH</span>
+            <span class="font-display text-[1.1rem] font-bold uppercase tracking-tight" style="color: var(--smoke)">STREET</span>
+            <span class="font-display text-[1.1rem] font-bold uppercase tracking-tight" style="color: var(--smoke)">RAW</span>
           </div>
         </div>
       </div>
 
-      <!-- Visual panel -->
-      <div class="lg:col-span-5 relative">
-        <div class="relative">
+      <!-- Visual bento panel -->
+      <div class="lg:col-span-7">
+        <div class="grid grid-cols-2 gap-4">
           <!-- Main image -->
-          <div class="relative overflow-hidden bg-iron anim-zoom-in" style="animation-delay: 0.15s">
+          <div class="col-span-2 bento-glass anim-zoom-in overflow-hidden" style="animation-delay: 0.15s">
             <img
-              class="w-full h-[420px] lg:h-[580px] object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
+              class="w-full h-[220px] lg:h-[340px] object-cover hover:scale-105 transition-transform duration-700"
               src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/7704fd53-429e-430d-9bac-ab2a563f87fb/U+NK+CLUB+CAP+U+FB+PREM+L.png"
               alt="Gorra Nike Club Premier frontal"
               loading="eager"
             />
-            <div class="absolute inset-0 mask-fade-bottom"></div>
           </div>
 
-          <!-- Floating badge -->
-          <div
-            class="absolute -bottom-4 -left-4 bg-ink border border-white/8 p-4 flex items-center gap-3 anim-slide-up"
-            style="animation-delay: 0.55s"
-          >
-            <div class="text-ember font-display text-[1.5rem] lg:text-[2rem] font-bold leading-none">100%</div>
-            <div class="text-[0.55rem] font-mono uppercase tracking-[0.15em] text-smoke leading-tight">
+          <!-- Badge glass card -->
+          <div class="glass-card flex items-center gap-3 p-4 anim-slide-up" style="animation-delay: 0.55s">
+            <div class="stat-number leading-none" style="color: var(--ember)">100%</div>
+            <div class="text-[0.55rem] font-mono uppercase tracking-[0.15em] leading-tight" style="color: var(--soot)">
               Hecho<br />en Perú
             </div>
           </div>
 
-          <!-- Secondary gorra image -->
-          <div
-            class="absolute -top-4 -right-4 w-32 h-32 lg:w-40 lg:h-40 overflow-hidden border-2 border-ink bg-iron anim-scale-in"
-            style="animation-delay: 0.35s"
-          >
+          <!-- Secondary image -->
+          <div class="bento-glass overflow-hidden anim-scale-in" style="animation-delay: 0.35s">
             <img
-              class="w-full h-full object-contain p-1"
+              class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
               src="https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0e4e3c9d-f390-48b0-9102-8551f7a5a0c0/U+NK+CLUB+CAP+U+FB+PREM+L.png"
               alt="Gorra Nike Club Premier"
               loading="lazy"
@@ -120,8 +106,8 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 anim-fade-in scroll-float" style="animation-delay: 0.9s">
-    <span class="text-[0.5rem] font-mono uppercase tracking-[0.25em] text-smoke/30">Desplázate</span>
-    <span class="w-[1px] h-8 bg-gradient-to-b from-ember/60 to-transparent"></span>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 anim-fade-in scroll-float" style="animation-delay: 0.9s">
+    <span class="text-[0.5rem] font-mono uppercase tracking-[0.25em]" style="color: var(--smoke)">Desplázate</span>
+    <span class="w-[1px] h-6" style="background: linear-gradient(to bottom, var(--ember) 60%, transparent)"></span>
   </div>
 </section>

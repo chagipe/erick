@@ -1,6 +1,36 @@
 (function () {
   "use strict";
 
+  // ─── Theme toggle ─────────────────────────────────────────
+  var html = document.documentElement;
+  var toggle = document.getElementById("theme-toggle");
+  var icon = toggle && toggle.querySelector(".theme-icon");
+  var saved = localStorage.getItem("theme");
+
+  function setTheme(dark) {
+    if (dark) {
+      html.classList.add("dark");
+      if (icon) icon.textContent = "light_mode";
+    } else {
+      html.classList.remove("dark");
+      if (icon) icon.textContent = "dark_mode";
+    }
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }
+
+  // Respect saved preference or system preference
+  if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    setTheme(true);
+  } else {
+    setTheme(false);
+  }
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      setTheme(!html.classList.contains("dark"));
+    });
+  }
+
   // ─── Page loader ───────────────────────────────────────────
   var loader = document.getElementById("page-loader");
   var bar = document.getElementById("loader-bar");
@@ -12,12 +42,10 @@
       return;
     }
 
-    // Fill the bar
     if (bar) {
       bar.style.width = "100%";
     }
 
-    // After bar fill + hold, hide loader and start hero
     var delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? 400
       : 2200;
@@ -25,7 +53,6 @@
     setTimeout(function () {
       loader.classList.add("loaded");
 
-      // After loader transition ends, trigger hero
       setTimeout(function () {
         loader.style.display = "none";
         if (hero) hero.classList.add("hero-ready");
@@ -42,9 +69,8 @@
         var rect = hero.getBoundingClientRect();
         if (rect.bottom > 0 && rect.top < window.innerHeight * 1.5) {
           var pct = rect.top / window.innerHeight;
-          var offset = pct * 30;
           heroImgs.forEach(function (img) {
-            img.style.transform = "translateY(" + offset + "px)";
+            img.style.transform = "translateY(" + (pct * 30) + "px)";
           });
         }
       },
@@ -52,7 +78,6 @@
     );
   }
 
-  // Kick off on first paint
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", startPage);
   } else {
@@ -68,9 +93,15 @@
     var h = document.documentElement.scrollHeight - window.innerHeight;
 
     if (y > 60) {
-      navbar.classList.add("bg-ink/90", "backdrop-blur-md", "shadow-lg", "shadow-ink/50");
+      navbar.style.backdropFilter = "blur(16px)";
+      navbar.style.webkitBackdropFilter = "blur(16px)";
+      navbar.style.background = "var(--glass)";
+      navbar.style.borderBottom = "1px solid var(--glass-border)";
     } else {
-      navbar.classList.remove("bg-ink/90", "backdrop-blur-md", "shadow-lg", "shadow-ink/50");
+      navbar.style.backdropFilter = "none";
+      navbar.style.webkitBackdropFilter = "none";
+      navbar.style.background = "transparent";
+      navbar.style.borderBottom = "none";
     }
 
     if (progress) {
@@ -93,12 +124,12 @@
   });
 
   // ─── Mobile menu ──────────────────────────────────────────
-  var toggle = document.getElementById("menu-toggle");
+  var toggleBtn = document.getElementById("menu-toggle");
   var closeBtn = document.getElementById("menu-close");
   var menu = document.getElementById("mobile-menu");
 
-  if (toggle && menu) {
-    toggle.addEventListener("click", function () {
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener("click", function () {
       menu.classList.remove("opacity-0", "pointer-events-none");
       menu.classList.add("opacity-100", "pointer-events-auto");
       document.body.style.overflow = "hidden";
@@ -193,13 +224,15 @@
       }
 
       status.className =
-        "text-body-md text-center p-3 rounded bg-ember/10 text-ember block";
+        "text-body-md text-center p-3 rounded block";
       status.textContent = "Enviando solicitud...";
+      status.style.background = "color-mix(in srgb, var(--ember) 10%, transparent)";
+      status.style.color = "var(--ember)";
 
       setTimeout(function () {
-        status.className =
-          "text-body-md text-center p-3 rounded bg-[#1a3a2a]/50 text-[#4cdf8b] block";
         status.textContent = "Recibido. Te escribimos en menos de 24 horas.";
+        status.style.background = "color-mix(in srgb, #4cdf8b 10%, transparent)";
+        status.style.color = "#4cdf8b";
         form.reset();
 
         setTimeout(function () {

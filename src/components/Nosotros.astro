@@ -1,98 +1,62 @@
-<section
-  id="nosotros"
-  class="relative py-section overflow-hidden"
->
-  <div class="mx-auto px-gutter" style="max-width: 1400px">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+<section id="nosotros" class="relative py-section overflow-hidden" style="background: var(--iron)">
+  <div class="section-number" style="color: var(--lead)">03</div>
+
+  <div class="mx-auto px-gutter relative z-10" style="max-width: 1400px">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       <!-- Text block -->
       <div class="lg:col-span-6">
-        <span
-          class="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-ember block mb-4 reveal"
-        >
-          Quiénes somos
-        </span>
+        <span class="section-label block mb-4 reveal" style="color: var(--ember)">Quiénes somos</span>
 
         <div class="reveal-left">
-          <span
-            class="float-left text-[clamp(4rem,10vw,7rem)] leading-[0.8] font-display font-bold text-ember/20 mr-3 select-none"
-          >E</span>
-          <p
-            class="text-body-lg text-lead/90 leading-relaxed mt-0"
-          >
-            <strong class="text-lead">rick</strong> no es una marca de ropa. Somos
+          <p class="text-body-lg leading-relaxed mt-0" style="color: var(--soot)">
+            <strong style="color: var(--lead)">Erick</strong> no es una marca de ropa. Somos
             una fábrica obsesionada con un solo producto: la gorra. Desde la
-            selección del gramaje de la tela hasta el broche final, cada
-            decisión está pensada para que tu diseño se vea y se sienta
-            premium.
+            selección del gramaje de la tela hasta el broche final.
           </p>
         </div>
 
-        <p
-          class="text-body-md text-smoke/50 leading-relaxed mt-4 reveal-left"
-          style="transition-delay: 0.1s"
-        >
+        <p class="text-body-md leading-relaxed mt-4 reveal-left" style="transition-delay: 0.1s; color: var(--smoke)">
           Producimos para marcas de ropa, agencias, emprendedores y negocios
           locales. No tercerizamos: todo se hace en nuestro taller con
-          maquinaria de última generación y un equipo que sabe lo que hace.
+          maquinaria de última generación.
         </p>
 
-        <div class="flex flex-wrap gap-8 mt-8 reveal-left" style="transition-delay: 0.2s">
+        <!-- Big stats — AI Report inspired -->
+        <div class="grid grid-cols-3 gap-6 mt-10 reveal-left" style="transition-delay: 0.2s">
           <div>
-            <div class="font-display text-number text-ember leading-none counter" data-target="120">0</div>
-            <p
-              class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 mt-1 m-0"
-            >
-              Modelos diseñados
-            </p>
+            <div class="stat-number leading-none" style="color: var(--ember)"><span class="counter" data-target="120">0</span></div>
+            <div class="accent-line mt-2 mb-2" style="background: var(--ember)"></div>
+            <p class="text-[0.6rem] font-mono uppercase tracking-[0.15em] m-0" style="color: var(--smoke)">Modelos diseñados</p>
           </div>
           <div>
-            <div class="font-display text-number text-ember leading-none counter" data-target="500">0</div>
-            <p
-              class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 mt-1 m-0"
-            >
-              Marcas activas
-            </p>
+            <div class="stat-number leading-none" style="color: var(--ember)"><span class="counter" data-target="500">0</span></div>
+            <div class="accent-line mt-2 mb-2" style="background: var(--ember)"></div>
+            <p class="text-[0.6rem] font-mono uppercase tracking-[0.15em] m-0" style="color: var(--smoke)">Marcas activas</p>
           </div>
           <div>
-            <div class="font-display text-number text-ember leading-none counter" data-target="12">0</div>
-            <p
-              class="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-smoke/50 mt-1 m-0"
-            >
-              Países destino
-            </p>
+            <div class="stat-number leading-none" style="color: var(--ember)"><span class="counter" data-target="12">0</span></div>
+            <div class="accent-line mt-2 mb-2" style="background: var(--ember)"></div>
+            <p class="text-[0.6rem] font-mono uppercase tracking-[0.15em] m-0" style="color: var(--smoke)">Países destino</p>
           </div>
         </div>
       </div>
 
-      <!-- Visual block -->
+      <!-- Visual glass bento -->
       <div class="lg:col-span-6 reveal-right">
-        <div class="relative">
-          <div class="relative overflow-hidden bg-iron border border-white/5">
-            <img
-              class="w-full h-[400px] lg:h-[520px] object-cover opacity-90"
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=700&q=80"
-              alt="Taller de manufactura"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-tr from-ink/80 via-transparent to-transparent"></div>
+        <div class="bento-glass">
+          <div class="relative overflow-hidden">
+            <video class="w-full h-[400px] lg:h-[500px] object-cover" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=700&q=80">
+              <source src="https://videos.pexels.com/video-files/31359194/13382176_1920_1080_50fps.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0" style="background: linear-gradient(to top right, color-mix(in srgb, var(--ink) 60%, transparent), transparent);"></div>
           </div>
-
-          <!-- Overlay stat card -->
-          <div
-            class="absolute bottom-4 left-4 right-4 lg:static lg:absolute lg:bottom-6 lg:left-6 bg-ink/95 backdrop-blur border border-white/8 p-5 flex items-center gap-4"
-          >
-            <div
-              class="w-12 h-12 bg-ember/10 border border-ember/20 flex items-center justify-center shrink-0"
-            >
-              <span class="material-symbols-outlined text-ember">verified</span>
+          <div class="p-5 flex items-center gap-4" style="border-top: 1px solid var(--glass-border)">
+            <div class="w-12 h-12 flex items-center justify-center shrink-0 rounded-xl" style="background: var(--ember); color: white;">
+              <span class="material-symbols-outlined">verified</span>
             </div>
             <div>
-              <p class="text-[0.8rem] font-semibold text-lead m-0">
-                Control de calidad unitario
-              </p>
-              <p class="text-[0.7rem] text-smoke/50 m-0 mt-0.5">
-                Cada gorra se inspecciona antes de enviarse
-              </p>
+              <p class="text-[0.8rem] font-semibold m-0" style="color: var(--lead)">Control de calidad unitario</p>
+              <p class="text-[0.7rem] m-0 mt-0.5" style="color: var(--smoke)">Cada gorra se inspecciona antes de enviarse</p>
             </div>
           </div>
         </div>

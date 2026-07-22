@@ -1,145 +1,78 @@
-<section
-  id="proceso"
-  class="relative py-section bg-iron/30 overflow-hidden"
->
-  <div class="absolute inset-0 grid-pattern opacity-20"></div>
+<section id="proceso" class="relative py-section overflow-hidden" style="background: var(--ink)">
+  <div class="section-number flipped" style="color: var(--ember); opacity: 0.06">02</div>
 
   <div class="relative z-10 mx-auto px-gutter" style="max-width: 1400px">
-    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-      <span
-        class="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-ember block mb-3 reveal"
-      >
-        Metodología
-      </span>
-      <h2
-        class="font-display text-display-md text-lead uppercase leading-[1.05] m-0 reveal"
-      >
+    <div class="max-w-2xl mb-16 lg:mb-20">
+      <span class="section-label block mb-3 reveal" style="color: var(--ember)">Metodología</span>
+      <h2 class="font-display uppercase leading-[0.92] m-0 reveal" style="color: var(--lead); font-size: clamp(2.5rem, 6vw, 5rem)">
         De tu idea a tu lote en 3 movimientos
       </h2>
     </div>
 
-    <!-- Timeline -->
-    <div class="relative max-w-5xl mx-auto">
-      <!-- Desktop connector line -->
-      <div
-        class="hidden lg:block absolute top-[56px] left-[60px] right-[60px] h-[1px] bg-white/5"
-      ></div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
-        <!-- Step 1 -->
-        <div class="relative flex flex-col items-center lg:items-start text-center lg:text-left group stagger-children visible">
-          <div
-            class="relative z-10 w-14 h-14 lg:w-[112px] lg:h-[112px] bg-ink border border-white/8 flex items-center justify-center mb-5 group-hover:border-ember/40 transition-all duration-500"
-          >
-            <span
-              class="font-display text-[1.5rem] lg:text-number text-smoke/20 font-bold leading-none"
-            >
-              01
-            </span>
-            <span
-              class="absolute -top-2 -right-2 w-4 h-4 lg:w-6 lg:h-6 bg-ember rounded-full flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[0.6rem] lg:text-xs text-ink">palette</span>
-            </span>
+    <!-- Grid simétrico de 3 columnas -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <!-- Paso 1 -->
+      <div class="reveal-scale">
+        <div class="glass-card p-6 lg:p-8 h-full group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background: var(--ember); color: white;">
+              <span class="material-symbols-outlined text-xl">palette</span>
+            </div>
+            <span class="font-display text-[2.5rem] font-bold leading-none" style="color: var(--slag); letter-spacing: -0.06em;">01</span>
           </div>
-          <h3
-            class="font-display text-heading-md text-lead uppercase m-0 mb-2"
-          >
+          <h3 class="font-display text-heading-md uppercase m-0 mb-3" style="color: var(--lead)">
             Diseño y Telas
           </h3>
-          <p class="text-body-md text-smoke/50 m-0 max-w-xs">
-            Seleccionamos materiales de primera calidad junto con tu equipo.
-            Vectorizamos tu logotipo y definimos bordados, parches o estampados.
+          <p class="text-body-md m-0" style="color: var(--soot)">
+            Seleccionamos materiales de primera calidad. Vectorizamos tu logotipo y definimos bordados o estampados.
           </p>
-          <ul
-            class="mt-4 flex flex-col gap-1.5 text-[0.75rem] font-mono text-smoke/30 list-none p-0"
-          >
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              Asesoría textil personalizada
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              Vectorización profesional
-            </li>
+          <ul class="mt-5 flex flex-col gap-2 text-[0.75rem] font-mono list-none p-0" style="color: var(--smoke)">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> Asesoría textil personalizada</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> Vectorización profesional</li>
           </ul>
         </div>
+      </div>
 
-        <!-- Step 2 -->
-        <div class="relative flex flex-col items-center lg:items-start text-center lg:text-left group stagger-children visible">
-          <div
-            class="relative z-10 w-14 h-14 lg:w-[112px] lg:h-[112px] bg-ink border border-white/8 flex items-center justify-center mb-5 group-hover:border-ember/40 transition-all duration-500"
-          >
-            <span
-              class="font-display text-[1.5rem] lg:text-number text-smoke/20 font-bold leading-none"
-            >
-              02
-            </span>
-            <span
-              class="absolute -top-2 -right-2 w-4 h-4 lg:w-6 lg:h-6 bg-ember rounded-full flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[0.6rem] lg:text-xs text-ink">request_quote</span>
-            </span>
+      <!-- Paso 2 -->
+      <div class="reveal-scale" style="transition-delay: 0.1s">
+        <div class="glass-card p-6 lg:p-8 h-full group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background: var(--ember); color: white;">
+              <span class="material-symbols-outlined text-xl">request_quote</span>
+            </div>
+            <span class="font-display text-[2.5rem] font-bold leading-none" style="color: var(--slag); letter-spacing: -0.06em;">02</span>
           </div>
-          <h3
-            class="font-display text-heading-md text-lead uppercase m-0 mb-2"
-          >
+          <h3 class="font-display text-heading-md uppercase m-0 mb-3" style="color: var(--lead)">
             Cotización
           </h3>
-          <p class="text-body-md text-smoke/50 m-0 max-w-xs">
-            Recibe un presupuesto detallado según tus especificaciones. Te
-            cotizamos por modelo, cantidad, tipo de bordado y plazo de entrega.
+          <p class="text-body-md m-0" style="color: var(--soot)">
+            Recibe un presupuesto detallado según tus especificaciones. Te cotizamos por modelo, cantidad y bordado.
           </p>
-          <ul
-            class="mt-4 flex flex-col gap-1.5 text-[0.75rem] font-mono text-smoke/30 list-none p-0"
-          >
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              Presupuesto por unidad y volumen
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              Sin cargos ocultos
-            </li>
+          <ul class="mt-5 flex flex-col gap-2 text-[0.75rem] font-mono list-none p-0" style="color: var(--smoke)">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> Presupuesto por unidad y volumen</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> Sin cargos ocultos</li>
           </ul>
         </div>
+      </div>
 
-        <!-- Step 3 -->
-        <div class="relative flex flex-col items-center lg:items-start text-center lg:text-left group stagger-children visible">
-          <div
-            class="relative z-10 w-14 h-14 lg:w-[112px] lg:h-[112px] bg-ink border border-white/8 flex items-center justify-center mb-5 group-hover:border-ember/40 transition-all duration-500"
-          >
-            <span
-              class="font-display text-[1.5rem] lg:text-number text-smoke/20 font-bold leading-none"
-            >
-              03
-            </span>
-            <span
-              class="absolute -top-2 -right-2 w-4 h-4 lg:w-6 lg:h-6 bg-ember rounded-full flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined text-[0.6rem] lg:text-xs text-ink">manufacturing</span>
-            </span>
+      <!-- Paso 3 -->
+      <div class="reveal-scale" style="transition-delay: 0.2s">
+        <div class="glass-card p-6 lg:p-8 h-full group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background: var(--ember); color: white;">
+              <span class="material-symbols-outlined text-xl">manufacturing</span>
+            </div>
+            <span class="font-display text-[2.5rem] font-bold leading-none" style="color: var(--slag); letter-spacing: -0.06em;">03</span>
           </div>
-          <h3
-            class="font-display text-heading-md text-lead uppercase m-0 mb-2"
-          >
+          <h3 class="font-display text-heading-md uppercase m-0 mb-3" style="color: var(--lead)">
             Producción y Envío
           </h3>
-          <p class="text-body-md text-smoke/50 m-0 max-w-xs">
-            Fabricación bajo demanda con control de calidad unitario. Cada
-            gorra se inspecciona antes de empacarse para despacho.
+          <p class="text-body-md m-0" style="color: var(--soot)">
+            Fabricación bajo demanda con control de calidad unitario. Cada gorra se inspecciona antes de empacarse.
           </p>
-          <ul
-            class="mt-4 flex flex-col gap-1.5 text-[0.75rem] font-mono text-smoke/30 list-none p-0"
-          >
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              QC unitario
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1 h-1 rounded-full bg-ember/50"></span>
-              Logística internacional
-            </li>
+          <ul class="mt-5 flex flex-col gap-2 text-[0.75rem] font-mono list-none p-0" style="color: var(--smoke)">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> QC unitario</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full" style="background: var(--ember)"></span> Logística internacional</li>
           </ul>
         </div>
       </div>

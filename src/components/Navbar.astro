@@ -8,52 +8,73 @@
   >
     <a
       href="#hero"
-      class="relative text-lead font-display text-[1.35rem] font-bold uppercase tracking-[-0.04em] no-underline leading-none"
+      class="relative font-display text-[1.35rem] font-bold uppercase tracking-[-0.04em] no-underline leading-none"
+      style="color: var(--lead)"
     >
-      <span class="text-ember">ERICK</span>
-      <span class="text-[0.5rem] font-mono font-normal tracking-[0.2em] text-smoke ml-2 uppercase hidden sm:inline">
+      <span style="color: var(--ember)">ERICK</span>
+      <span class="text-[0.5rem] font-mono font-normal tracking-[0.2em] ml-2 uppercase hidden sm:inline" style="color: var(--smoke)">
         Fábrica de Gorras
       </span>
     </a>
 
-    <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
-      <li>
-        <a
-          href="#modelos"
-          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
-        >Modelos</a>
-      </li>
-      <li>
-        <a
-          href="#proceso"
-          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
-        >Proceso</a>
-      </li>
-      <li>
-        <a
-          href="#nosotros"
-          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
-        >Nosotros</a>
-      </li>
-      <li>
-        <a
-          href="#contacto"
-          class="text-smoke hover:text-lead text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
-        >Contacto</a>
-      </li>
-    </ul>
+    <div class="flex items-center gap-3">
+      <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+        <li>
+          <a
+            href="#modelos"
+            class="text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+            style="color: var(--smoke)"
+            onmouseover="this.style.color='var(--lead)'"
+            onmouseout="this.style.color='var(--smoke)'"
+          >Modelos</a>
+        </li>
+        <li>
+          <a
+            href="#proceso"
+            class="text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+            style="color: var(--smoke)"
+            onmouseover="this.style.color='var(--lead)'"
+            onmouseout="this.style.color='var(--smoke)'"
+          >Proceso</a>
+        </li>
+        <li>
+          <a
+            href="#nosotros"
+            class="text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+            style="color: var(--smoke)"
+            onmouseover="this.style.color='var(--lead)'"
+            onmouseout="this.style.color='var(--smoke)'"
+          >Nosotros</a>
+        </li>
+        <li>
+          <a
+            href="#contacto"
+            class="text-[0.8rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
+            style="color: var(--smoke)"
+            onmouseover="this.style.color='var(--lead)'"
+            onmouseout="this.style.color='var(--smoke)'"
+          >Contacto</a>
+        </li>
+      </ul>
 
-    <div class="flex items-center gap-4">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <span class="theme-icon material-symbols-outlined text-base">dark_mode</span>
+      </button>
+
       <a
         href="#contacto"
-        class="hidden sm:inline-flex items-center gap-2 bg-ember text-ink text-[0.7rem] font-mono font-semibold uppercase tracking-[0.15em] px-5 py-2.5 no-underline hover:bg-emberlight transition-all duration-300"
+        class="hidden sm:inline-flex items-center gap-2 text-[0.7rem] font-mono font-semibold uppercase tracking-[0.15em] px-5 py-2.5 no-underline transition-all duration-300 rounded-full"
+        style="background: var(--ember); color: #FFFFFF"
+        onmouseover="this.style.background='var(--emberdark)'"
+        onmouseout="this.style.background='var(--ember)'"
       >
         Cotizar
         <span class="material-symbols-outlined text-sm">chevron_right</span>
       </a>
       <button
         id="menu-toggle"
-        class="md:hidden bg-transparent border-0 text-lead p-1 cursor-pointer"
+        class="md:hidden bg-transparent border-0 p-1 cursor-pointer"
+        style="color: var(--lead)"
         aria-label="Menú"
       >
         <span class="material-symbols-outlined text-2xl">menu</span>
@@ -61,22 +82,24 @@
     </div>
   </div>
 
-  <!-- Scroll progress indicator -->
+  <!-- Scroll progress -->
   <div
     id="scroll-progress"
-    class="absolute bottom-0 left-0 h-[2px] bg-ember transition-all duration-150"
-    style="width: 0%"
+    class="absolute bottom-0 left-0 h-[2px] transition-all duration-150"
+    style="background: var(--ember); width: 0%"
   ></div>
 </nav>
 
 <!-- Mobile menu -->
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-[60] bg-ink/98 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-500"
+  class="fixed inset-0 z-[60] flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-500"
+  style="background: var(--ink)"
 >
   <button
     id="menu-close"
-    class="absolute top-6 right-6 bg-transparent border-0 text-lead cursor-pointer"
+    class="absolute top-6 right-6 bg-transparent border-0 cursor-pointer"
+    style="color: var(--lead)"
     aria-label="Cerrar"
   >
     <span class="material-symbols-outlined text-3xl">close</span>
@@ -86,31 +109,46 @@
     <li>
       <a
         href="#hero"
-        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+        class="font-display font-bold uppercase tracking-[-0.02em] no-underline transition-colors text-[clamp(1.5rem,5vw,2.5rem)]"
+        style="color: var(--lead)"
+        onmouseover="this.style.color='var(--ember)'"
+        onmouseout="this.style.color='var(--lead)'"
       >Inicio</a>
     </li>
     <li>
       <a
         href="#modelos"
-        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+        class="font-display font-bold uppercase tracking-[-0.02em] no-underline transition-colors text-[clamp(1.5rem,5vw,2.5rem)]"
+        style="color: var(--lead)"
+        onmouseover="this.style.color='var(--ember)'"
+        onmouseout="this.style.color='var(--lead)'"
       >Modelos</a>
     </li>
     <li>
       <a
         href="#proceso"
-        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+        class="font-display font-bold uppercase tracking-[-0.02em] no-underline transition-colors text-[clamp(1.5rem,5vw,2.5rem)]"
+        style="color: var(--lead)"
+        onmouseover="this.style.color='var(--ember)'"
+        onmouseout="this.style.color='var(--lead)'"
       >Proceso</a>
     </li>
     <li>
       <a
         href="#nosotros"
-        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+        class="font-display font-bold uppercase tracking-[-0.02em] no-underline transition-colors text-[clamp(1.5rem,5vw,2.5rem)]"
+        style="color: var(--lead)"
+        onmouseover="this.style.color='var(--ember)'"
+        onmouseout="this.style.color='var(--lead)'"
       >Nosotros</a>
     </li>
     <li>
       <a
         href="#contacto"
-        class="text-lead text-[clamp(1.5rem,5vw,2.5rem)] font-display font-bold uppercase tracking-[-0.02em] no-underline hover:text-ember transition-colors"
+        class="font-display font-bold uppercase tracking-[-0.02em] no-underline transition-colors text-[clamp(1.5rem,5vw,2.5rem)]"
+        style="color: var(--lead)"
+        onmouseover="this.style.color='var(--ember)'"
+        onmouseout="this.style.color='var(--lead)'"
       >Contacto</a>
     </li>
   </ul>

@@ -6,7 +6,7 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,27 +34,67 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         scroll-behavior: smooth;
       }
 
+      /* ─── Theme CSS Variables ─── */
+      :root {
+        --ink: #F5F1EC;
+        --lead: #1C1816;
+        --iron: #EDE8E3;
+        --slag: rgba(28,24,22,0.08);
+        --ember: #E31837;
+        --emberlight: #FF4D6D;
+        --emberdark: #B8152B;
+        --brass: #1C1816;
+        --brassdark: #000000;
+        --smoke: #9C958E;
+        --soot: #6B6560;
+        --graphite: #E5E0DB;
+        --ash: #D6D1CC;
+        --glass: rgba(255,255,255,0.55);
+        --glass-border: rgba(255,255,255,0.75);
+        --glass-shadow: rgba(28,24,22,0.04);
+      }
+
+      .dark {
+        --ink: #0C0A0A;
+        --lead: #F0ECE8;
+        --iron: #181514;
+        --slag: rgba(240,236,232,0.06);
+        --ember: #E31837;
+        --emberlight: #FF4D6D;
+        --emberdark: #B8152B;
+        --brass: #F0ECE8;
+        --brassdark: #FFFFFF;
+        --smoke: #5A5550;
+        --soot: #8A8580;
+        --graphite: #22201E;
+        --ash: #2D2A28;
+        --glass: rgba(255,255,255,0.035);
+        --glass-border: rgba(255,255,255,0.07);
+        --glass-shadow: rgba(0,0,0,0.4);
+      }
+
       body {
-        background: #090909;
-        color: #f0ece8;
+        background: var(--ink);
+        color: var(--lead);
         font-family: "Inter", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        transition: background 0.35s ease, color 0.35s ease;
       }
 
       ::selection {
-        background: rgba(255, 107, 0, 0.3);
-        color: #fff;
+        background: rgba(227, 24, 55, 0.15);
+        color: var(--lead);
       }
 
       ::-webkit-scrollbar {
         width: 5px;
       }
       ::-webkit-scrollbar-track {
-        background: #090909;
+        background: var(--iron);
       }
       ::-webkit-scrollbar-thumb {
-        background: #ff6b00;
+        background: var(--ember);
         border-radius: 0;
       }
 
@@ -62,20 +102,98 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
 
-      /* ---------- utilities ---------- */
-      .glow-ember {
-        box-shadow: 0 0 24px rgba(255, 107, 0, 0.25);
-      }
-      .glow-ember-strong {
-        box-shadow: 0 0 40px rgba(255, 107, 0, 0.35);
-      }
-      .glow-ember-text {
-        text-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+      /* ─── Section number styling (AI Report inspired) ─── */
+      .section-number {
+        font-family: "Archivo Narrow", sans-serif;
+        font-size: clamp(5rem, 15vw, 10rem);
+        font-weight: 800;
+        line-height: 0.85;
+        letter-spacing: -0.06em;
+        user-select: none;
+        transition: color 0.35s ease;
+        position: absolute;
+        top: -0.15em;
+        right: 0;
+        opacity: 0.04;
+        pointer-events: none;
       }
 
-      .mask-fade-right {
-        mask-image: linear-gradient(to right, black 60%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+      .section-number.flipped {
+        right: auto;
+        left: 0;
+      }
+
+      .section-label {
+        font-family: "Geist", monospace;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        transition: color 0.35s ease;
+      }
+
+      /* ─── Big stat number ─── */
+      .stat-number {
+        font-family: "Archivo Narrow", sans-serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        transition: color 0.35s ease;
+      }
+
+      /* ─── Better accent line ─── */
+      .accent-line {
+        width: 32px;
+        height: 3px;
+        border-radius: 2px;
+        transition: background 0.35s ease;
+      }
+
+      /* ─── Glass + Bento utilities ─── */
+      .glass-card {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        box-shadow: 0 4px 24px var(--glass-shadow);
+        transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.35s ease, border 0.35s ease;
+      }
+
+      .glass-card:hover {
+        box-shadow: 0 8px 40px var(--glass-shadow);
+        transform: translateY(-3px);
+      }
+
+      .glass-card-static {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        box-shadow: 0 4px 24px var(--glass-shadow);
+        transition: background 0.35s ease, border 0.35s ease;
+      }
+
+      .bento-glass {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px var(--glass-shadow);
+        transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.35s ease, border 0.35s ease;
+      }
+
+      .bento-glass:hover {
+        box-shadow: 0 8px 40px var(--glass-shadow);
+        transform: translateY(-3px);
+      }
+
+      .glow-ember {
+        box-shadow: 0 0 24px rgba(227, 24, 55, 0.2);
       }
 
       .mask-fade-bottom {
@@ -83,33 +201,29 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         -webkit-mask-image: linear-gradient(to top, transparent, black 40%);
       }
 
-      .grid-pattern {
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-        background-size: 48px 48px;
+      /* ─── Theme toggle button ─── */
+      .theme-toggle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--slag);
+        background: var(--glass);
+        backdrop-filter: blur(12px);
+        color: var(--soot);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 1.15rem;
       }
 
-      .noise-overlay::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.35;
-        mix-blend-mode: overlay;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        background-repeat: repeat;
-        background-size: 256px 256px;
+      .theme-toggle:hover {
+        border-color: var(--ember);
+        color: var(--ember);
       }
 
-      .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-
-      /* ---------- page-load animations ---------- */
+      /* ─── Page load animations ─── */
       .hero-ready .anim-fade-in {
         animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
@@ -191,7 +305,7 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         }
       }
 
-      /* ---------- reveal animations ---------- */
+      /* ─── Reveal animations ─── */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -253,11 +367,12 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         }
       }
 
-      /* ---------- page loader ---------- */
+      /* ─── Page loader ─── */
       #page-loader {
         transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0s 0.5s;
+                    visibility 0s 0.5s,
+                    background 0.35s ease;
       }
       #page-loader.loaded {
         opacity: 0;
@@ -265,7 +380,6 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
         visibility: hidden;
         pointer-events: none;
       }
-
       #loader-bar {
         transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
@@ -298,21 +412,24 @@ const { title = "Erick | Fábrica de Gorras" } = Astro.props;
     <!-- Page loader -->
     <div
       id="page-loader"
-      class="fixed inset-0 z-[999] bg-ink flex flex-col items-center justify-center"
+      class="fixed inset-0 z-[999] flex flex-col items-center justify-center"
+      style="background: var(--ink)"
     >
       <div class="text-center">
         <div
-          class="font-display text-[clamp(2rem,6vw,5rem)] font-bold text-lead uppercase tracking-[-0.03em] leading-none"
+          class="font-display text-[clamp(2rem,6vw,5rem)] font-bold uppercase tracking-[-0.03em] leading-none"
+          style="color: var(--lead)"
         >
           ERICK
         </div>
         <div
-          class="text-[0.55rem] font-mono uppercase tracking-[0.2em] text-smoke/40 mt-1.5"
+          class="text-[0.55rem] font-mono uppercase tracking-[0.2em] mt-1.5"
+          style="color: var(--smoke)"
         >
           Fábrica de Gorras
         </div>
-        <div class="mt-6 w-36 h-[1px] bg-white/5 relative overflow-hidden mx-auto">
-          <div id="loader-bar" class="absolute inset-0 bg-ember" style="width: 0%"></div>
+        <div class="mt-6 w-36 h-[2px] relative overflow-hidden mx-auto" style="background: var(--slag)">
+          <div id="loader-bar" class="absolute inset-0" style="background: var(--ember); width: 0%"></div>
         </div>
       </div>
     </div>

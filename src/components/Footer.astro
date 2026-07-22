@@ -1,5 +1,6 @@
 <footer
-  class="border-t border-white/5 py-10 lg:py-12"
+  class="py-10 lg:py-12"
+  style="border-top: 1px solid var(--slag)"
 >
   <div
     class="mx-auto px-gutter flex flex-col lg:flex-row items-center justify-between gap-6"
@@ -8,12 +9,13 @@
     <div>
       <a
         href="#hero"
-        class="text-lead font-display text-[1.1rem] font-bold uppercase tracking-[-0.03em] no-underline"
+        class="font-display text-[1.1rem] font-bold uppercase tracking-[-0.03em] no-underline"
+        style="color: var(--lead)"
       >
-        <span class="text-ember">ERICK</span>
-        <span class="text-[0.45rem] font-mono tracking-[0.2em] text-smoke ml-2 uppercase">Fábrica de Gorras</span>
+        <span style="color: var(--ember)">ERICK</span>
+        <span class="text-[0.45rem] font-mono tracking-[0.2em] ml-2 uppercase" style="color: var(--smoke)">Fábrica de Gorras</span>
       </a>
-      <p class="text-[0.65rem] font-mono text-smoke/30 mt-1 m-0">
+      <p class="text-[0.65rem] font-mono mt-1 m-0" style="color: var(--smoke)">
         Calidad industrial. Hecho en México.
       </p>
     </div>
@@ -21,19 +23,28 @@
     <div class="flex items-center gap-6">
       <a
         href="#"
-        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] text-smoke/40 no-underline hover:text-smoke transition-colors"
+        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] no-underline transition-colors"
+        style="color: var(--smoke)"
+        onmouseover="this.style.color='var(--lead)'"
+        onmouseout="this.style.color='var(--smoke)'"
       >Privacidad</a>
       <a
         href="#"
-        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] text-smoke/40 no-underline hover:text-smoke transition-colors"
+        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] no-underline transition-colors"
+        style="color: var(--smoke)"
+        onmouseover="this.style.color='var(--lead)'"
+        onmouseout="this.style.color='var(--smoke)'"
       >Términos</a>
       <a
         href="#"
-        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] text-smoke/40 no-underline hover:text-smoke transition-colors"
+        class="text-[0.65rem] font-mono uppercase tracking-[0.1em] no-underline transition-colors"
+        style="color: var(--smoke)"
+        onmouseover="this.style.color='var(--lead)'"
+        onmouseout="this.style.color='var(--smoke)'"
       >Planta</a>
     </div>
 
-    <div class="text-[0.6rem] font-mono text-smoke/20 tracking-[0.05em]">
+    <div class="text-[0.6rem] font-mono tracking-[0.05em]" style="color: var(--smoke)">
       &copy; 2026 Erick. Todos los derechos reservados.
     </div>
   </div>
