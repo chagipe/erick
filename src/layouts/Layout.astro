@@ -212,9 +212,65 @@ const { title = "ERICK — Colección de Gorras" } = Astro.props;
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #999; }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #111111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .page-loader.loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader-logo {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: loaderFadeIn 0.6s ease 0.3s forwards;
+    }
+    .loader-bar-track {
+      width: 120px;
+      height: 2px;
+      background: rgba(255,255,255,0.15);
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 1px;
+    }
+    .loader-bar {
+      height: 100%;
+      width: 0%;
+      background: #ffffff;
+      border-radius: 1px;
+      animation: loaderProgress 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+    }
+    @keyframes loaderFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes loaderProgress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
   </style>
 </head>
 <body class="bg-white text-[#111111]">
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo text-center">
+      <span class="text-3xl font-black tracking-[0.25em] uppercase text-white">ERICK</span>
+      <p class="text-[10px] text-white/40 tracking-[0.15em] uppercase mt-2">Taller de Gorras</p>
+    </div>
+    <div class="loader-bar-track">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
   <slot />
 </body>
 </html>

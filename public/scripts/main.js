@@ -1,3 +1,11 @@
+// ---- Page Loader ----
+window.addEventListener('load', function() {
+  var loader = document.getElementById('page-loader');
+  if (loader) {
+    setTimeout(function() { loader.classList.add('loaded'); }, 2500);
+  }
+});
+
 // ---- Cart System ----
 var WHATSAPP_NUMBER = '51919599132';
 var cart = [];
