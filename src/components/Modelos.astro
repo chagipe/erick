@@ -1,109 +1,279 @@
-<section id="modelos" class="relative py-section overflow-hidden" style="background: var(--iron)">
-  <div class="absolute inset-0 opacity-[0.015]" style="background-image: radial-gradient(var(--lead) 1px, transparent 1px); background-size: 32px 32px;"></div>
-  <div class="section-number" style="color: var(--lead)">01</div>
+<!-- Collection Filters -->
+<section id="coleccion" class="bg-white border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+      <button class="filter-btn active border border-gray-200 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 sm:px-6 py-2.5 rounded-full" data-filter="todos">
+        Todos
+      </button>
+      <button class="filter-btn border border-gray-200 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 sm:px-6 py-2.5 rounded-full text-gray-500 hover:border-erick-black hover:text-erick-black" data-filter="trucker">
+        Trucker
+      </button>
+      <button class="filter-btn border border-gray-200 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 sm:px-6 py-2.5 rounded-full text-gray-500 hover:border-erick-black hover:text-erick-black" data-filter="snapback">
+        Snapback
+      </button>
+      <button class="filter-btn border border-gray-200 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 sm:px-6 py-2.5 rounded-full text-gray-500 hover:border-erick-black hover:text-erick-black" data-filter="dadhat">
+        Dad Hat
+      </button>
+      <button class="filter-btn border border-gray-200 text-[10px] sm:text-xs font-semibold tracking-widest uppercase px-4 sm:px-6 py-2.5 rounded-full text-gray-500 hover:border-erick-black hover:text-erick-black" data-filter="suede">
+        Suede / Gamuza
+      </button>
+    </div>
+  </div>
+</section>
 
-  <div class="mx-auto px-gutter relative z-10" style="max-width: 1400px">
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 lg:mb-20">
-      <div class="reveal">
-        <span class="section-label block mb-3 reveal" style="color: var(--ember)">Catálogo 2026</span>
-        <h2 class="font-display uppercase leading-[0.92] m-0" style="color: var(--lead); font-size: clamp(2.5rem, 6vw, 5rem)">
-          Modelos<br />Disponibles
-        </h2>
-      </div>
-      <p class="text-body-md max-w-xs lg:text-right reveal" style="transition-delay: 0.1s; color: var(--smoke)">
-        Lote mínimo: 30 unidades. Todos admiten personalización total.
+<!-- Product Grid -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+
+    <div class="flex items-center justify-between mb-8">
+      <p class="text-xs font-semibold tracking-widest uppercase text-gray-400">
+        Mostrando <span id="product-count">12</span> productos
       </p>
     </div>
 
-    <!-- Bento grid balanceado -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
-      <!-- Trucker — más ancho -->
-      <div class="md:col-span-2 lg:col-span-7 group cursor-pointer reveal-scale bento-glass">
-        <div class="relative h-full">
-          <div class="aspect-[4/3] lg:aspect-[16/9] overflow-hidden">
-            <img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&q=80"
-              alt="Trucker Hat" loading="lazy" />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);"></div>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end">
-            <div>
-              <span class="text-[0.55rem] font-mono uppercase tracking-[0.2em] text-white px-2 py-1 inline-block mb-2 rounded" style="background: var(--ember)">Más pedido</span>
-              <h3 class="font-display text-heading-lg text-white uppercase m-0 leading-none">Trucker</h3>
-              <p class="text-[0.8rem] text-white/60 mt-1 m-0">Malla · Frente Rígido</p>
-            </div>
-            <span class="text-white/40 font-mono text-[0.7rem] uppercase tracking-[0.15em]">$120</span>
+    <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-12">
+
+      <!-- Product 1 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="trucker">
+        <div class="relative overflow-hidden bg-[#1a1a1a] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1678721938524-1a3ee398de2a?w=600&h=600&fit=crop&auto=format" alt="Gorra Trucker Black" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-erick-black text-white px-3 py-1.5 font-bold">Más Vendido</span>
+          <button onclick="addToCart('Gorra Trucker Erick Black', 59)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Trucker Erick Black</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Trucker · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 59.00</span>
           </div>
         </div>
       </div>
 
-      <!-- Snapback -->
-      <div class="lg:col-span-5 group cursor-pointer reveal-scale bento-glass" style="transition-delay: 0.1s">
-        <div class="relative h-full">
-          <div class="aspect-[4/3] lg:aspect-[4/5] overflow-hidden">
-            <img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              src="https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=600&q=80"
-              alt="Snapback premium" loading="lazy" />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);"></div>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end">
-            <div>
-              <h3 class="font-display text-heading-md text-white uppercase m-0 leading-none">Snapback</h3>
-              <p class="text-[0.8rem] text-white/60 mt-1 m-0">Visera Plana · Ajustable</p>
-            </div>
-            <span class="text-white/40 font-mono text-[0.7rem] uppercase tracking-[0.15em]">$135</span>
+      <!-- Product 2 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="snapback">
+        <div class="relative overflow-hidden bg-[#f0f0f0] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1691256676359-20e5c6d4bc92?w=600&h=600&fit=crop&auto=format" alt="Gorra Snapback White" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-white text-erick-black border border-gray-200 px-3 py-1.5 font-bold">Nuevo</span>
+          <button onclick="addToCart('Gorra Snapback Erick White', 55)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Snapback Erick White</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Snapback · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 55.00</span>
           </div>
         </div>
       </div>
 
-      <!-- Dad Hat -->
-      <div class="lg:col-span-5 group cursor-pointer reveal-scale bento-glass" style="transition-delay: 0.2s">
-        <div class="relative h-full">
-          <div class="aspect-[4/3] lg:aspect-[4/5] overflow-hidden">
-            <img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              src="https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=600&q=80"
-              alt="Dad Hat" loading="lazy" />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);"></div>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end">
-            <div>
-              <h3 class="font-display text-heading-md text-white uppercase m-0 leading-none">Dad Hat</h3>
-              <p class="text-[0.8rem] text-white/60 mt-1 m-0">Curvo · Algodón Pre-lavado</p>
-            </div>
-            <span class="text-white/40 font-mono text-[0.7rem] uppercase tracking-[0.15em]">$110</span>
+      <!-- Product 3 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="dadhat">
+        <div class="relative overflow-hidden bg-[#556B2F] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1558782594-fb302423f24a?w=600&h=600&fit=crop&auto=format" alt="Dad Hat Olive" class="product-img w-full h-full object-cover">
+          <button onclick="addToCart('Dad Hat Erick Olive', 49)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Dad Hat Erick Olive</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Dad Hat · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 49.00</span>
           </div>
         </div>
       </div>
 
-      <!-- Beanie — más ancho -->
-      <div class="md:col-span-2 lg:col-span-7 group cursor-pointer reveal-scale bento-glass" style="transition-delay: 0.3s">
-        <div class="relative h-full">
-          <div class="aspect-[4/3] lg:aspect-[16/9] overflow-hidden">
-            <img class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              src="https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80"
-              alt="Beanie térmico" loading="lazy" />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);"></div>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 flex justify-between items-end">
-            <div>
-              <span class="text-[0.55rem] font-mono uppercase tracking-[0.2em] px-2 py-1 inline-block mb-2 rounded" style="color: var(--lead); background: var(--glass)">Nueva temporada</span>
-              <h3 class="font-display text-heading-lg text-white uppercase m-0 leading-none">Beanies</h3>
-              <p class="text-[0.8rem] text-white/60 mt-1 m-0">Tejido Térmico · Doble Capa</p>
-            </div>
-            <span class="text-white/40 font-mono text-[0.7rem] uppercase tracking-[0.15em]">$95</span>
+      <!-- Product 4 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="suede">
+        <div class="relative overflow-hidden bg-[#1B2A4A] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1578631950628-2e012a11ab28?w=600&h=600&fit=crop&auto=format" alt="Gorra Suede Navy" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-white text-erick-black border border-gray-200 px-3 py-1.5 font-bold">Nuevo</span>
+          <button onclick="addToCart('Gorra Suede Erick Navy', 65)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Suede Erick Navy</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Suede · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 65.00</span>
           </div>
         </div>
       </div>
+
+      <!-- Product 5 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="trucker">
+        <div class="relative overflow-hidden bg-[#111] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1620327467532-6ebaca6273ed?w=600&h=600&fit=crop&auto=format" alt="Gorra Trucker Neon" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1.5 font-bold">Personalizable</span>
+          <button onclick="addToCart('Gorra Trucker Erick Black/Neon', 62)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Trucker Erick Black / Neon</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Trucker · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 62.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="snapback">
+        <div class="relative overflow-hidden bg-[#222] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1606483956061-46a898dce538?w=600&h=600&fit=crop&auto=format" alt="Gorra Snapback Black" class="product-img w-full h-full object-cover">
+          <button onclick="addToCart('Gorra Snapback Erick Black', 55)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Snapback Erick Black</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Snapback · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 55.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="dadhat">
+        <div class="relative overflow-hidden bg-[#1a1a1a] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1566842958636-bb967980ca30?w=600&h=600&fit=crop&auto=format" alt="Dad Hat Black" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-erick-black text-white px-3 py-1.5 font-bold">Más Vendido</span>
+          <button onclick="addToCart('Dad Hat Erick Black', 49)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Dad Hat Erick Black</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Dad Hat · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 49.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="trucker">
+        <div class="relative overflow-hidden bg-[#8B0000] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1533603531139-2c4d04df8f16?w=600&h=600&fit=crop&auto=format" alt="Gorra Trucker Red" class="product-img w-full h-full object-cover">
+          <button onclick="addToCart('Gorra Trucker Erick Red', 59)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Trucker Erick Red</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Trucker · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 59.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="suede">
+        <div class="relative overflow-hidden bg-[#111] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1602337871614-a2bf032f4701?w=600&h=600&fit=crop&auto=format" alt="Gorra Suede Black" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-emerald-500 text-white px-3 py-1.5 font-bold">Personalizable</span>
+          <button onclick="addToCart('Gorra Suede Erick Black', 65)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Suede Erick Black</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Suede · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 65.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="snapback">
+        <div class="relative overflow-hidden bg-[#4A5D23] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1607326210922-cd8f6e393f54?w=600&h=600&fit=crop&auto=format" alt="Gorra Snapback Camo" class="product-img w-full h-full object-cover">
+          <button onclick="addToCart('Gorra Snapback Erick Camo', 57)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Snapback Erick Camo</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Snapback · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 57.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="dadhat">
+        <div class="relative overflow-hidden bg-[#1B2A4A] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1753723824025-50ba4bc2ab68?w=600&h=600&fit=crop&auto=format" alt="Dad Hat Navy" class="product-img w-full h-full object-cover">
+          <button onclick="addToCart('Dad Hat Erick Navy', 49)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Dad Hat Erick Navy</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Dad Hat · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 49.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="product-card group cursor-pointer fade-in" data-category="trucker">
+        <div class="relative overflow-hidden bg-[#f5f5f5] aspect-square mb-4">
+          <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&h=600&fit=crop&auto=format" alt="Gorra Trucker White" class="product-img w-full h-full object-cover">
+          <span class="badge absolute top-3 left-3 bg-white text-erick-black border border-gray-200 px-3 py-1.5 font-bold">Nuevo</span>
+          <button onclick="addToCart('Gorra Trucker Erick White', 59)" class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-label="Añadir al pedido">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+            </svg>
+          </button>
+        </div>
+        <div class="px-1">
+          <h3 class="text-xs font-bold tracking-wide uppercase leading-tight">Gorra Trucker Erick White</h3>
+          <p class="text-[11px] text-gray-400 mt-1 tracking-wide">Trucker · Ajustable</p>
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-sm font-bold">S/ 59.00</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="mt-12 text-center reveal">
-      <a href="#contacto"
-        class="inline-flex items-center gap-2 text-[0.75rem] font-mono uppercase tracking-[0.15em] no-underline transition-colors duration-300"
-        style="color: var(--smoke)"
-        onmouseover="this.style.color='var(--ember)'" onmouseout="this.style.color='var(--smoke)'">
-        Ver catálogo completo
-        <span class="material-symbols-outlined text-base">arrow_forward</span>
-      </a>
+    <div class="text-center mt-12">
+      <button class="border border-erick-black text-erick-black text-xs font-semibold tracking-widest uppercase px-10 py-4 hover:bg-erick-black hover:text-white transition-all duration-300">
+        Cargar Más
+      </button>
     </div>
   </div>
 </section>

@@ -2,438 +2,219 @@
 interface Props {
   title?: string;
 }
-const { title = "Erick | Fábrica de Gorras" } = Astro.props;
+const { title = "ERICK — Colección de Gorras" } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Geist:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0"
-      rel="stylesheet"
-    />
-
-    <style is:global>
-      @view-transition { navigation: auto; }
-
-      *, *::before, *::after {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* ─── Theme CSS Variables ─── */
-      :root {
-        --ink: #F5F1EC;
-        --lead: #1C1816;
-        --iron: #EDE8E3;
-        --slag: rgba(28,24,22,0.08);
-        --ember: #E31837;
-        --emberlight: #FF4D6D;
-        --emberdark: #B8152B;
-        --brass: #1C1816;
-        --brassdark: #000000;
-        --smoke: #9C958E;
-        --soot: #6B6560;
-        --graphite: #E5E0DB;
-        --ash: #D6D1CC;
-        --glass: rgba(255,255,255,0.55);
-        --glass-border: rgba(255,255,255,0.75);
-        --glass-shadow: rgba(28,24,22,0.04);
-      }
-
-      .dark {
-        --ink: #0C0A0A;
-        --lead: #F0ECE8;
-        --iron: #181514;
-        --slag: rgba(240,236,232,0.06);
-        --ember: #E31837;
-        --emberlight: #FF4D6D;
-        --emberdark: #B8152B;
-        --brass: #F0ECE8;
-        --brassdark: #FFFFFF;
-        --smoke: #5A5550;
-        --soot: #8A8580;
-        --graphite: #22201E;
-        --ash: #2D2A28;
-        --glass: rgba(255,255,255,0.035);
-        --glass-border: rgba(255,255,255,0.07);
-        --glass-shadow: rgba(0,0,0,0.4);
-      }
-
-      body {
-        background: var(--ink);
-        color: var(--lead);
-        font-family: "Inter", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transition: background 0.35s ease, color 0.35s ease;
-      }
-
-      ::selection {
-        background: rgba(227, 24, 55, 0.15);
-        color: var(--lead);
-      }
-
-      ::-webkit-scrollbar {
-        width: 5px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--iron);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--ember);
-        border-radius: 0;
-      }
-
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-
-      /* ─── Section number styling (AI Report inspired) ─── */
-      .section-number {
-        font-family: "Archivo Narrow", sans-serif;
-        font-size: clamp(5rem, 15vw, 10rem);
-        font-weight: 800;
-        line-height: 0.85;
-        letter-spacing: -0.06em;
-        user-select: none;
-        transition: color 0.35s ease;
-        position: absolute;
-        top: -0.15em;
-        right: 0;
-        opacity: 0.04;
-        pointer-events: none;
-      }
-
-      .section-number.flipped {
-        right: auto;
-        left: 0;
-      }
-
-      .section-label {
-        font-family: "Geist", monospace;
-        font-size: 0.7rem;
-        font-weight: 500;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        transition: color 0.35s ease;
-      }
-
-      /* ─── Big stat number ─── */
-      .stat-number {
-        font-family: "Archivo Narrow", sans-serif;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        font-weight: 800;
-        line-height: 1;
-        letter-spacing: -0.03em;
-        transition: color 0.35s ease;
-      }
-
-      /* ─── Better accent line ─── */
-      .accent-line {
-        width: 32px;
-        height: 3px;
-        border-radius: 2px;
-        transition: background 0.35s ease;
-      }
-
-      /* ─── Glass + Bento utilities ─── */
-      .glass-card {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        box-shadow: 0 4px 24px var(--glass-shadow);
-        transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.35s ease, border 0.35s ease;
-      }
-
-      .glass-card:hover {
-        box-shadow: 0 8px 40px var(--glass-shadow);
-        transform: translateY(-3px);
-      }
-
-      .glass-card-static {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        box-shadow: 0 4px 24px var(--glass-shadow);
-        transition: background 0.35s ease, border 0.35s ease;
-      }
-
-      .bento-glass {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 4px 24px var(--glass-shadow);
-        transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.35s ease, border 0.35s ease;
-      }
-
-      .bento-glass:hover {
-        box-shadow: 0 8px 40px var(--glass-shadow);
-        transform: translateY(-3px);
-      }
-
-      .glow-ember {
-        box-shadow: 0 0 24px rgba(227, 24, 55, 0.2);
-      }
-
-      .mask-fade-bottom {
-        mask-image: linear-gradient(to top, transparent, black 40%);
-        -webkit-mask-image: linear-gradient(to top, transparent, black 40%);
-      }
-
-      /* ─── Theme toggle button ─── */
-      .theme-toggle {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid var(--slag);
-        background: var(--glass);
-        backdrop-filter: blur(12px);
-        color: var(--soot);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        font-size: 1.15rem;
-      }
-
-      .theme-toggle:hover {
-        border-color: var(--ember);
-        color: var(--ember);
-      }
-
-      /* ─── Page load animations ─── */
-      .hero-ready .anim-fade-in {
-        animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-      .hero-ready .anim-slide-up {
-        animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-      .hero-ready .anim-slide-down {
-        animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-      .hero-ready .anim-scale-in {
-        animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-      .hero-ready .anim-zoom-in {
-        animation: zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes slideUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      @keyframes zoomIn {
-        from { opacity: 0; transform: scale(1.08); filter: blur(4px); }
-        to { opacity: 1; transform: scale(1); filter: blur(0); }
-      }
-
-      @keyframes pulseGlow {
-        0%, 100% { opacity: 0.03; transform: translate(-50%, -50%) scale(1); }
-        50% { opacity: 0.06; transform: translate(-50%, -50%) scale(1.05); }
-      }
-      @keyframes floatDown {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(4px); }
-      }
-      .hero-ready .hero-glow {
-        animation: pulseGlow 4s ease-in-out infinite;
-      }
-      .hero-ready .scroll-float {
-        animation: floatDown 2s ease-in-out infinite;
-      }
-
-      @media (max-width: 1023px) {
-        .hero-ready .anim-slide-up,
-        .hero-ready .anim-slide-down {
-          animation-duration: 0.5s;
-        }
-        .hero-ready .anim-zoom-in,
-        .hero-ready .anim-scale-in {
-          animation-duration: 0.6s;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            erick: {
+              black: '#111111',
+              gray: '#F9F9F9',
+              dark: '#1a1a1a',
+            }
+          },
+          letterSpacing: {
+            widest: '0.15em',
+            wide: '0.08em',
+          }
         }
       }
+    }
+  </script>
+  <style is:global>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
-      @media (prefers-reduced-motion: reduce) {
-        .hero-ready .anim-fade-in,
-        .hero-ready .anim-slide-up,
-        .hero-ready .anim-slide-down,
-        .hero-ready .anim-scale-in,
-        .hero-ready .anim-zoom-in {
-          animation: none;
-          opacity: 1;
-          transform: none;
-          filter: none;
-        }
-        .reveal, .reveal-left, .reveal-right, .reveal-scale {
-          transition: none;
-          opacity: 1;
-          transform: none;
-        }
-      }
+    .announcement-bar {
+      background: #111111;
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-      /* ─── Reveal animations ─── */
-      .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal-left {
-        opacity: 0;
-        transform: translateX(-40px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .reveal-left.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .reveal-right {
-        opacity: 0;
-        transform: translateX(40px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .reveal-right.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .reveal-scale {
-        opacity: 0;
-        transform: scale(0.92);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .reveal-scale.visible {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .header-icon {
+      transition: opacity 0.2s ease;
+    }
+    .header-icon:hover {
+      opacity: 0.7;
+    }
 
-      .stagger-children > * {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      .stagger-children.visible > * {
-        animation: staggerFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      .stagger-children.visible > *:nth-child(1) { animation-delay: 0s; }
-      .stagger-children.visible > *:nth-child(2) { animation-delay: 0.1s; }
-      .stagger-children.visible > *:nth-child(3) { animation-delay: 0.2s; }
-      .stagger-children.visible > *:nth-child(4) { animation-delay: 0.3s; }
-      .stagger-children.visible > *:nth-child(5) { animation-delay: 0.4s; }
+    .sort-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 220px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 40;
+    }
+    .sort-dropdown.open {
+      display: block;
+    }
+    .sort-dropdown button {
+      width: 100%;
+      text-align: left;
+      padding: 10px 16px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: #111;
+      transition: background 0.15s;
+    }
+    .sort-dropdown button:hover {
+      background: #f5f5f5;
+    }
 
-      @keyframes staggerFadeIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    .floating-offer {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 45;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
 
-      /* ─── Page loader ─── */
-      #page-loader {
-        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                    visibility 0s 0.5s,
-                    background 0.35s ease;
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 50;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 14px 30px -5px rgba(0, 0, 0, 0.5), 0 10px 14px -6px rgba(0, 0, 0, 0.35);
+    }
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
       }
-      #page-loader.loaded {
-        opacity: 0;
-        transform: translateY(-16px);
-        visibility: hidden;
-        pointer-events: none;
+      .floating-offer {
+        display: none;
       }
-      #loader-bar {
-        transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
+    }
 
-      @keyframes loaderPulse {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 1; }
-      }
-      .loader-dot {
-        animation: loaderPulse 1s ease-in-out infinite;
-      }
-      .loader-dot:nth-child(2) { animation-delay: 0.15s; }
-      .loader-dot:nth-child(3) { animation-delay: 0.3s; }
+    .product-card .product-img {
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+    .product-card .product-img-secondary {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      inset: 0;
+    }
+    .product-card:hover .product-img-secondary {
+      opacity: 1;
+    }
 
-      @media (prefers-reduced-motion: reduce) {
-        #page-loader {
-          transition: opacity 0.3s ease, visibility 0s 0.3s;
-        }
-        #loader-bar {
-          transition: none;
-        }
-        .loader-dot {
-          animation: none;
-          opacity: 0.5;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Page loader -->
-    <div
-      id="page-loader"
-      class="fixed inset-0 z-[999] flex flex-col items-center justify-center"
-      style="background: var(--ink)"
-    >
-      <div class="text-center">
-        <div
-          class="font-display text-[clamp(2rem,6vw,5rem)] font-bold uppercase tracking-[-0.03em] leading-none"
-          style="color: var(--lead)"
-        >
-          ERICK
-        </div>
-        <div
-          class="text-[0.55rem] font-mono uppercase tracking-[0.2em] mt-1.5"
-          style="color: var(--smoke)"
-        >
-          Fábrica de Gorras
-        </div>
-        <div class="mt-6 w-36 h-[2px] relative overflow-hidden mx-auto" style="background: var(--slag)">
-          <div id="loader-bar" class="absolute inset-0" style="background: var(--ember); width: 0%"></div>
-        </div>
-      </div>
-    </div>
+    .filter-btn {
+      transition: all 0.3s ease;
+    }
+    .filter-btn.active {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+    }
 
-    <slot />
-  </body>
+    .badge {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #111111;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #333333;
+      transform: translateY(-1px);
+    }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f5f5f5 100%);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #111111;
+      box-shadow: 0 0 0 1px #111111;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #999; }
+  </style>
+</head>
+<body class="bg-white text-erick-black">
+  <slot />
+</body>
 </html>
